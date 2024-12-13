@@ -17,12 +17,48 @@ repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/snapshot' }
 }
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
+//    implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+//    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation 'org.springframework.security:spring-security-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Spring Cloud 환경에서 server to server 요청을 처리해 주는 feign client 라이브러리
+//    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    // 쿼리 파라미터 추가 외부 로그 남기기
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
+
+    // json web token 라이브러리
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+
+    // spring-boot-starter-mail
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    // 자바 언어를 통해 smtp 통신을 할 수 있게 하는 라이브러리
+    implementation 'jakarta.mail:jakarta.mail-api:2.1.2'
+
+    // 마이바티스 라이브러리
+    // Spring Boot 3에서는 mybatis 3.x 버전으로 진행하세요.
+//    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+    // S3 파일 연동
+//    implementation 'io.awspring.cloud:spring-cloud-aws-s3:3.0.2'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+    //swagger
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+
 }
 
 tasks.named('test') {
